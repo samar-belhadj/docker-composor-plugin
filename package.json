@@ -1,0 +1,58 @@
+{
+  "name": "docker-composor-plugin",
+  "version": "0.0.1",
+  "description": "Plugin for creating docker compose files",
+  "main": "dist/docker-composor-plugin.js",
+  "exports": "./dist/docker-composor-plugin.js",
+  "scripts": {
+    "build": "webpack",
+    "build:docs": "jsdoc --readme README.md --package package.json -r ./src/ -c jsdoc.config.json -d docs",
+    "lint": "eslint --ext .js src",
+    "lint:fix": "eslint --fix --ext .js src",
+    "lint:report": "eslint --ext .js src -f json-relative > eslint.json",
+    "prepare:docs": "sed -i 's#taffydb#@jsdoc/salty#g' node_modules/better-docs/publish.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "generate:parser": "node scripts/generate_parser.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samar-belhadj/docker-composor-plugin.git"
+  },
+  "keywords": [
+    "Leto-modelizer",
+    "docker-compose",
+    "docker-composor-plugin"
+  ],
+  "author": "Samar Belhadj <samar.belhadj@nearteam.fr>",
+  "license": "Mozilla Public License 2.0",
+  "bugs": {
+    "url": "https://github.com/samar-belhadj/docker-composor-plugin.git/issues"
+  },
+  "homepage": "https://github.com/samar-belhadj/docker-composor-plugin.git#readme",
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "leto-modelizer-plugin-core": "github:ditrit/leto-modelizer-plugin-core#0.16.0",
+    "lidy-js": "github:ditrit/lidy-js.git#main"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "babel-jest": "^29.5.0",
+    "babel-loader": "^9.1.2",
+    "better-docs": "^2.7.2",
+    "eslint": "^8.40.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-formatter-json-relative": "^0.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-jsdoc": "^44.2.3",
+    "eslint-webpack-plugin": "^4.0.1",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "jest-sonar-reporter": "^2.0.0",
+    "jsdoc": "^4.0.2",
+    "webpack": "^5.82.1",
+    "webpack-cli": "^5.1.1"
+  }
+}

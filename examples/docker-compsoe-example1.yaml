@@ -1,0 +1,30 @@
+version: '3.9'
+services:
+  microservice_1:
+    image: ms1
+    depends_on:
+      microservice_2:
+        condition: service_healthy
+      microservice_3:
+        condition: service_started
+    volumes:
+      - lcoal-vol
+  microservice_2:
+    image: ms2
+    depends_on:
+      microservice_3:
+        condition: service_completed_successfully
+    networks:
+      - WAN1
+  microservice_3:
+    image: ms3
+    networks:
+      - WAN1
+      - PAN
+volumes:
+  lcoal-vol:
+    driver: qkjsd
+    external: true
+networks:
+  WAN1:
+    driver: kqjsd
